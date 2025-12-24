@@ -63,7 +63,7 @@ export function createApp(): Express {
   // Documentação Swagger
   app.get('/api-docs', (req, res) => {
     // Detecta a URL base dinamicamente
-    const protocol = req.protocol;
+    const protocol = req.get('x-forwarded-proto') || req.protocol;
     const host = req.get('host');
     const baseUrl = `${protocol}://${host}`;
     
