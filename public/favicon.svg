@@ -1,7 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="65" r="25" fill="#FF6B6B"/>
-  <ellipse cx="35" cy="35" rx="12" ry="15" fill="#FF6B6B" transform="rotate(-20 35 35)"/>
-  <ellipse cx="65" cy="35" rx="12" ry="15" fill="#FF6B6B" transform="rotate(20 65 35)"/>
-  <ellipse cx="25" cy="50" rx="10" ry="12" fill="#FF6B6B" transform="rotate(-30 25 50)"/>
-  <ellipse cx="75" cy="50" rx="10" ry="12" fill="#FF6B6B" transform="rotate(30 75 50)"/>
+  <!-- Cabeça -->
+  <ellipse cx="50" cy="55" rx="28" ry="32" fill="#FF8C42"/>
+  
+  <!-- Orelha esquerda -->
+  <ellipse cx="28" cy="35" rx="10" ry="18" fill="#FF8C42" transform="rotate(-25 28 35)"/>
+  
+  <!-- Orelha direita -->
+  <ellipse cx="72" cy="35" rx="10" ry="18" fill="#FF8C42" transform="rotate(25 72 35)"/>
+  
+  <!-- Focinho -->
+  <ellipse cx="50" cy="65" rx="18" ry="14" fill="#FFA562"/>
+  
+  <!-- Nariz -->
+  <ellipse cx="50" cy="62" rx="6" ry="5" fill="#2C2C2C"/>
+  
+  <!-- Olho esquerdo -->
+  <circle cx="40" cy="50" r="4" fill="#2C2C2C"/>
+  
+  <!-- Olho direito -->
+  <circle cx="60" cy="50" r="4" fill="#2C2C2C"/>
+  
+  <!-- Boca -->
+  <path d="M 50 62 Q 45 68 40 65 M 50 62 Q 55 68 60 65" stroke="#2C2C2C" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Língua -->
+  <ellipse cx="50" cy="72" rx="4" ry="6" fill="#FF6B9D"/>
 </svg>
