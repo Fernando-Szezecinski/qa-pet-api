@@ -1,5 +1,4 @@
 {
-  "buildCommand": "tsc",
   "rewrites": [
     {
       "source": "/(.*)",
