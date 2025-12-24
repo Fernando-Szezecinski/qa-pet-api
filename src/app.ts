@@ -62,6 +62,20 @@ export function createApp(): Express {
 
   // Documentação Swagger
   app.get('/api-docs', (req, res) => {
+    // Detecta a URL base dinamicamente
+    const protocol = req.protocol;
+    const host = req.get('host');
+    const baseUrl = `${protocol}://${host}`;
+    
+    // Adiciona o servidor atual dinamicamente
+    const swaggerWithServer = {
+      ...swaggerDefinition,
+      servers: [
+        { url: baseUrl, description: 'Servidor atual' },
+        ...swaggerDefinition.servers
+      ]
+    };
+    
     const html = `
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -81,7 +95,7 @@ export function createApp(): Express {
   <script>
     window.onload = function() {
       window.ui = SwaggerUIBundle({
-        spec: ${JSON.stringify(swaggerDefinition)},
+        spec: ${JSON.stringify(swaggerWithServer)},
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
