@@ -1,5 +1,7 @@
 import express, { Express } from 'express';
 import cors from 'cors';
+import path from 'path';
+import fs from 'fs';
 import swaggerUi from 'swagger-ui-express';
 import { petRouter } from './controllers/petController';
 import { loggerMiddleware } from './middlewares/logger';
@@ -47,6 +49,17 @@ export function createApp(): Express {
     });
   });
 
+  // Favicon (evita erro 404 no console)
+  app.get('/favicon.ico', (req, res) => {
+    const faviconPath = path.join(__dirname, '../public/favicon.svg');
+    if (fs.existsSync(faviconPath)) {
+      res.setHeader('Content-Type', 'image/svg+xml');
+      res.sendFile(faviconPath);
+    } else {
+      res.status(204).end();
+    }
+  });
+
   // Documentação Swagger
   app.get('/api-docs', (req, res) => {
     const html = `
@@ -55,6 +68,7 @@ export function createApp(): Express {
 <head>
   <meta charset="UTF-8">
   <title>QA Pet API - Documentação</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.11.0/swagger-ui.css" />
   <style>
     .swagger-ui .topbar { display: none }
