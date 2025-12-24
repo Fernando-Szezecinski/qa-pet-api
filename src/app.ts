@@ -48,7 +48,8 @@ export function createApp(): Express {
   });
 
   // Documentação Swagger
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDefinition, {
+  app.use('/api-docs', swaggerUi.serve);
+  app.get('/api-docs', swaggerUi.setup(swaggerDefinition, {
     customCss: '.swagger-ui .topbar { display: none }',
     customSiteTitle: 'QA Pet API - Documentação',
     swaggerOptions: {
@@ -57,7 +58,8 @@ export function createApp(): Express {
       docExpansion: 'list',
       defaultModelsExpandDepth: 1,
       defaultModelExpandDepth: 1
-    }
+    },
+    customCssUrl: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.11.0/swagger-ui.css'
   }));
 
   // Rotas da API
